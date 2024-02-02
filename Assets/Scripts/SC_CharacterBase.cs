@@ -111,12 +111,12 @@ public class SC_CharacterBase : MonoBehaviour
     {
         if (collision.tag == "hittableObject")
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(0);
         }
 
         if ((collision.tag == "door"))
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(0);
         }
     }
 
