@@ -25,6 +25,15 @@ public class MonsterDamage : MonoBehaviour
         /*    PlayerHealth.TakeDamage(damage);*/
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(characterScript != null)
+        {
+            SceneManager.LoadScene(0);
+        }
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         if(characterScript.Attacking == true)
@@ -32,7 +41,7 @@ public class MonsterDamage : MonoBehaviour
             Destroy(gameObject);
 
         }
-        else
+        else if (collision.isTrigger == false)
         {
             SceneManager.LoadScene(0); 
         }
