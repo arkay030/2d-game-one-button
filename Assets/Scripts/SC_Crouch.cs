@@ -6,10 +6,11 @@ public class SC_Crouch : SC_CharacterBase
 {
     [SerializeField] private bool crouched = false;
     [SerializeField] private float crouchSpeed;
+    [SerializeField] private CapsuleCollider2D standardCollider;
+    [SerializeField] private CapsuleCollider2D crouchCollider;
     protected override void Start()
     {
         base.Start();
-        runSpeedBase = 2.6f;
         movementX = 1;
     }
     protected override void Update()
@@ -18,22 +19,22 @@ public class SC_Crouch : SC_CharacterBase
         if (Input.anyKeyDown && !crouched)
         {
             crouched = true;
+            standardCollider.enabled = false;
+            crouchCollider.enabled = true;
         }
         if (crouched)
         {
             if (runSpeed > crouchSpeed)
             {
-                runSpeed--;
+                runSpeed -= Time.deltaTime;
             }
             else
             {
                 runSpeed = runSpeedBase;
                 crouched = false;
+                crouchCollider.enabled = false;
+                standardCollider.enabled = true;
             }
         }
-    }
-    protected override void FixedUpdate()
-    {
-        base.FixedUpdate();
     }
 }
