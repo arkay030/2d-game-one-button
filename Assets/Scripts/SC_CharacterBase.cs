@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum PlayerState
@@ -97,6 +98,14 @@ public class SC_CharacterBase : MonoBehaviour
         {
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, 180, transform.eulerAngles.z); // Rotating the character object to the left.
         }
+    }
+    protected void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "hitObject")
+        {
+
+        }
+
     }
 
 
