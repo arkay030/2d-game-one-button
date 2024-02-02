@@ -105,13 +105,12 @@ public class SC_CharacterBase : MonoBehaviour
 
         animator.SetInteger("PlayerState", (int)playerState);
     }
-    protected void OnTriggerEnter2D(Collider2D other)
+    protected void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.tag == "hitObject")
+        if (collision.tag == "hittableObject")
         {
-
+            Debug.Log(collision.tag);
         }
-
     }
 
 
