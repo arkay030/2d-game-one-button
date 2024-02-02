@@ -760,6 +760,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1387035116 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 180638333883183989, guid: 5cdc7cefcc9015e4b958ba9c1cbc2c00, type: 3}
+  m_PrefabInstance: {fileID: 1872576669}
+  m_PrefabAsset: {fileID: 0}
+--- !u!70 &1387035120 stripped
+CapsuleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 8576777327391855523, guid: 5cdc7cefcc9015e4b958ba9c1cbc2c00, type: 3}
+  m_PrefabInstance: {fileID: 1872576669}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1387035123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387035116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f61887fc30296194cb1d886f76e78b8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runSpeedBase: 2.6
+  runSpeed: 0
+  jumpForce: 2.6
+  groundCheckPoint: {fileID: 1725687681}
+  groundCheckRadius: 0.2
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  jumpCooldownBase: 0.2
+  jumpCooldown: 0
+  standingHitbox: {fileID: 1387035120}
+  attackCooldownBase: 0
+  attackCooldown: 0
+  crouched: 0
+  crouchSpeed: 1
+  standardCollider: {fileID: 1387035120}
+  crouchCollider: {fileID: 1387035124}
+--- !u!70 &1387035124 stripped
+CapsuleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 3306909347339491399, guid: 5cdc7cefcc9015e4b958ba9c1cbc2c00, type: 3}
+  m_PrefabInstance: {fileID: 1872576669}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1431865398
 GameObject:
   m_ObjectHideFlags: 0
@@ -2305,6 +2349,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da8a98f79fc70024c8f31965ec399084, type: 3}
+--- !u!1 &1725687681 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8048818972661931923, guid: 5cdc7cefcc9015e4b958ba9c1cbc2c00, type: 3}
+  m_PrefabInstance: {fileID: 1872576669}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1742620770
 GameObject:
   m_ObjectHideFlags: 0
@@ -2401,6 +2450,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerAttack
       objectReference: {fileID: 0}
+    - target: {fileID: 3306909347339491399, guid: 5cdc7cefcc9015e4b958ba9c1cbc2c00, type: 3}
+      propertyPath: m_Size.x
+      value: 0.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 3306909347339491399, guid: 5cdc7cefcc9015e4b958ba9c1cbc2c00, type: 3}
+      propertyPath: m_Size.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3306909347339491399, guid: 5cdc7cefcc9015e4b958ba9c1cbc2c00, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3306909347339491399, guid: 5cdc7cefcc9015e4b958ba9c1cbc2c00, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3306909347339491399, guid: 5cdc7cefcc9015e4b958ba9c1cbc2c00, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 7531678280954576389, guid: 5cdc7cefcc9015e4b958ba9c1cbc2c00, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 0.26
@@ -2493,10 +2562,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8597702730382479453, guid: 5cdc7cefcc9015e4b958ba9c1cbc2c00, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 180638333883183989, guid: 5cdc7cefcc9015e4b958ba9c1cbc2c00, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 1387035123}
   m_SourcePrefab: {fileID: 100100000, guid: 5cdc7cefcc9015e4b958ba9c1cbc2c00, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
