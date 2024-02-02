@@ -10,6 +10,7 @@ public class SC_JumpMode : SC_CharacterBase
     {
         base.Start();
         movementX = 1;
+        attacking = false;
     }
 
     protected override void Update()

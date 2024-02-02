@@ -90,6 +90,11 @@ public class SC_CharacterBase : MonoBehaviour
 
         if (isGrounded && attacking == false && crouched == false) { playerState = PlayerState.walking; }
 
+        if (isGrounded == false)
+        {
+            playerState = PlayerState.jumping;
+        }
+
         if (movementX != 0) //zodat er niet keer 0 wordt gedaan
         {
             runSpeedDirection = movementX * runSpeed;
@@ -127,6 +132,7 @@ public class SC_CharacterBase : MonoBehaviour
         body.velocity = new Vector2(0, jumpForce); // Jump physics.
         //playerState = PlayerState.jumping;
         canLand = true;
+        isGrounded = false;
         playerState = PlayerState.jumping;
     }
 
