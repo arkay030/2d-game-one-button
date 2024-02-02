@@ -7,7 +7,7 @@ public enum PlayerState
     walking,
     running,
     jumping,
-    idleCrouch,
+    attacking,
     crouchWalking,
     dead
 }
@@ -23,6 +23,7 @@ public class SC_CharacterBase : MonoBehaviour
     protected Rigidbody2D body;
 
     protected PlayerState playerState;
+    [SerializeField] protected Animator animator; // Variable for the Animator component
 
     protected bool canLand = false;     //voor als die geland is
     protected bool isGrounded; // Variable that will check if character is on the ground.
@@ -58,6 +59,7 @@ public class SC_CharacterBase : MonoBehaviour
         attackCooldown = attackCooldownBase;
         jumpCooldown = jumpCooldownBase;    //een "Base" van iets is de standaard waarde; zodat deze later weer opgehaald kan worden
         runSpeed = runSpeedBase;
+        playerState = PlayerState.walking;
     }
 
     protected virtual void Update()
@@ -84,6 +86,8 @@ public class SC_CharacterBase : MonoBehaviour
     {
         isGrounded = Physics2D.OverlapCircle(groundCheckPoint.transform.position, groundCheckRadius, groundLayer); // Checking if character is on the ground.
 
+        if (isGrounded && attacking == false) { playerState = PlayerState.walking; }
+
         if (movementX != 0) //zodat er niet keer 0 wordt gedaan
         {
             runSpeedDirection = movementX * runSpeed;
@@ -98,6 +102,8 @@ public class SC_CharacterBase : MonoBehaviour
         {
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, 180, transform.eulerAngles.z); // Rotating the character object to the left.
         }
+
+        animator.SetInteger("PlayerState", (int)playerState);
     }
     protected void OnTriggerEnter2D(Collider2D other)
     {
@@ -115,11 +121,13 @@ public class SC_CharacterBase : MonoBehaviour
         body.velocity = new Vector2(0, jumpForce); // Jump physics.
         //playerState = PlayerState.jumping;
         canLand = true;
+        playerState = PlayerState.jumping;
     }
 
 
     protected virtual void Attack()
     {
+        playerState = PlayerState.attacking;
         runSpeed = 0;
         canAttack = false;
         attacking = true;
@@ -130,5 +138,6 @@ public class SC_CharacterBase : MonoBehaviour
     {
         runSpeed = runSpeedBase;
         attacking = false;
+        playerState = PlayerState.walking;
     }
 }
