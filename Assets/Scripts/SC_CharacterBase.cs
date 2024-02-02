@@ -121,6 +121,15 @@ public class SC_CharacterBase : MonoBehaviour
 
         if ((collision.tag == "door"))
         {
+            SceneManager.LoadScene(1);
+        }
+
+        if ((collision.tag == "door2"))
+        {
+            SceneManager.LoadScene(2);
+        }
+        if ((collision.tag == "door3"))
+        {
             SceneManager.LoadScene(0);
         }
     }
