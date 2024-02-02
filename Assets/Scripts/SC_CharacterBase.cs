@@ -91,11 +91,11 @@ public class SC_CharacterBase : MonoBehaviour
 
         if (movementX == 1)     //tijdelijk om te draaien; gaat later via animation waarschijnlijk
         {
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x, 180, transform.eulerAngles.z); // Rotating the character object to the right.
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, 0, transform.eulerAngles.z); // Rotating the character object to the right.
         }
         else if (movementX == -1)
         {
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x, 0, transform.eulerAngles.z); // Rotating the character object to the left.
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, 180, transform.eulerAngles.z); // Rotating the character object to the left.
         }
     }
 
