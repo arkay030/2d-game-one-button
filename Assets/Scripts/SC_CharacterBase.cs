@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum PlayerState
 {
@@ -109,7 +110,12 @@ public class SC_CharacterBase : MonoBehaviour
     {
         if (collision.tag == "hittableObject")
         {
-            Debug.Log(collision.tag);
+            SceneManager.LoadScene(1);
+        }
+
+        if ((collision.tag == "door"))
+        {
+            SceneManager.LoadScene(1);
         }
     }
 

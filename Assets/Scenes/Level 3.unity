@@ -785,6 +785,7 @@ MonoBehaviour:
   runSpeedBase: 2.6
   runSpeed: 0
   jumpForce: 2.6
+  animator: {fileID: 0}
   groundCheckPoint: {fileID: 1725687681}
   groundCheckRadius: 0.2
   groundLayer:
@@ -2570,6 +2571,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8597702730382479453, guid: 5cdc7cefcc9015e4b958ba9c1cbc2c00, type: 3}
+    - {fileID: 7531678280954576389, guid: 5cdc7cefcc9015e4b958ba9c1cbc2c00, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

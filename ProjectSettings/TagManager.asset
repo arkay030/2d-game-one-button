@@ -6,6 +6,7 @@ TagManager:
   tags:
   - hitObject
   - hittableObject
+  - door
   layers:
   - Default
   - TransparentFX
