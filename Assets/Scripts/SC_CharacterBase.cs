@@ -122,4 +122,7 @@ public class SC_CharacterBase : MonoBehaviour
         runSpeed = runSpeedBase;
         attacking = false;
     }
+    protected virtual void Crouch()
+    {
+    }
 }
