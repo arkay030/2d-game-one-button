@@ -9,7 +9,6 @@ public class SC_JumpMode : SC_CharacterBase
     protected override void Start()
     {
         base.Start();
-        runSpeedBase = 2.6f;
         movementX = 1;
     }
 
@@ -17,10 +16,22 @@ public class SC_JumpMode : SC_CharacterBase
     {
         base.Update();
 
-        if (Input.anyKeyDown && isGrounded)
+        if (Input.anyKeyDown && isGrounded && canJump)
         {
             canJump = false;
             Jump();
+        }
+
+        if (canJump == false && jumpCooldown >= 0)              //jump Cooldown timer
+        {
+            jumpCooldown -= Time.deltaTime;
+            // Debug.Log(canJump);
+        }
+        else if (canJump == false)
+        {
+            canJump = true;
+            jumpCooldown = jumpCooldownBase;
+            print("Can attack again");
         }
 
     }
