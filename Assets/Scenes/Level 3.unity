@@ -785,7 +785,8 @@ MonoBehaviour:
   runSpeedBase: 2.6
   runSpeed: 0
   jumpForce: 2.6
-  animator: {fileID: 0}
+  animator: {fileID: 1387035129}
+  crouched: 0
   groundCheckPoint: {fileID: 1725687681}
   groundCheckRadius: 0.2
   groundLayer:
@@ -805,6 +806,27 @@ CapsuleCollider2D:
   m_CorrespondingSourceObject: {fileID: 3306909347339491399, guid: 5cdc7cefcc9015e4b958ba9c1cbc2c00, type: 3}
   m_PrefabInstance: {fileID: 1872576669}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1387035129
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387035116}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0d9745831118426478d7a67c1b06d716, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1431865398
 GameObject:
   m_ObjectHideFlags: 0
@@ -2439,7 +2461,7 @@ Transform:
   m_GameObject: {fileID: 1742620770}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.1834297, y: -1.1740762, z: 0}
+  m_LocalPosition: {x: 5.26, y: -1.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2476,6 +2498,18 @@ PrefabInstance:
     - target: {fileID: 3306909347339491399, guid: 5cdc7cefcc9015e4b958ba9c1cbc2c00, type: 3}
       propertyPath: m_Offset.y
       value: -0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7531678280954576389, guid: 5cdc7cefcc9015e4b958ba9c1cbc2c00, type: 3}
+      propertyPath: m_Size.x
+      value: 1.5152588
+      objectReference: {fileID: 0}
+    - target: {fileID: 7531678280954576389, guid: 5cdc7cefcc9015e4b958ba9c1cbc2c00, type: 3}
+      propertyPath: m_Offset.x
+      value: 1.3173707
+      objectReference: {fileID: 0}
+    - target: {fileID: 7531678280954576389, guid: 5cdc7cefcc9015e4b958ba9c1cbc2c00, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.009740531
       objectReference: {fileID: 0}
     - target: {fileID: 7531678280954576389, guid: 5cdc7cefcc9015e4b958ba9c1cbc2c00, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
@@ -2578,6 +2612,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 180638333883183989, guid: 5cdc7cefcc9015e4b958ba9c1cbc2c00, type: 3}
       insertIndex: 2
       addedObject: {fileID: 1387035123}
+    - targetCorrespondingSourceObject: {fileID: 180638333883183989, guid: 5cdc7cefcc9015e4b958ba9c1cbc2c00, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1387035129}
   m_SourcePrefab: {fileID: 100100000, guid: 5cdc7cefcc9015e4b958ba9c1cbc2c00, type: 3}
 --- !u!1001 &1948695324
 PrefabInstance:

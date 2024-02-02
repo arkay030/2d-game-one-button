@@ -26,6 +26,7 @@ public class SC_CharacterBase : MonoBehaviour
     protected PlayerState playerState;
     [SerializeField] protected Animator animator; // Variable for the Animator component
 
+    [SerializeField] bool crouched;
     protected bool canLand = false;     //voor als die geland is
     protected bool isGrounded; // Variable that will check if character is on the ground.
     [SerializeField] protected GameObject groundCheckPoint; // The object through which the isGrounded check is performed.
@@ -87,7 +88,7 @@ public class SC_CharacterBase : MonoBehaviour
     {
         isGrounded = Physics2D.OverlapCircle(groundCheckPoint.transform.position, groundCheckRadius, groundLayer); // Checking if character is on the ground.
 
-        if (isGrounded && attacking == false) { playerState = PlayerState.walking; }
+        if (isGrounded && attacking == false && crouched == false) { playerState = PlayerState.walking; }
 
         if (movementX != 0) //zodat er niet keer 0 wordt gedaan
         {
@@ -144,5 +145,10 @@ public class SC_CharacterBase : MonoBehaviour
         runSpeed = runSpeedBase;
         attacking = false;
         playerState = PlayerState.walking;
+    }
+    protected virtual void Crouch(bool crouch)
+    {
+        crouched = crouch;
+        playerState = PlayerState.crouchWalking;
     }
 }
