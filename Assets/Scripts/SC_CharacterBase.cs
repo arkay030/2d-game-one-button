@@ -30,19 +30,32 @@ public class SC_CharacterBase : MonoBehaviour
     [SerializeField] private float groundCheckRadius; // isGrounded check radius.
     [SerializeField] private LayerMask groundLayer; // Layer wich the character can jump on.
 
-    [SerializeField] protected float jumpCoolDownBase = 0.2f;
-    [SerializeField] protected float jumpCoolDown;
+    [SerializeField] protected float jumpCooldownBase = 0.2f;
+    [SerializeField] protected float jumpCooldown;
 
     protected float movementX;
     protected float runSpeedDirection;
 
     [SerializeField] private CapsuleCollider2D standingHitbox;
 
+
+    [SerializeField] protected float attackCooldownBase;
+    [SerializeField] protected float attackCooldown;
+    protected bool canAttack = true;
+
+    protected bool attacking = false;
+    public bool Attacking   //zodat andere scripts bij de variabele kunnen die hier in staat
+    {
+        get { return attacking; }
+        set { attacking = value; }
+    }
+
     protected virtual void Start()
     {
         body = GetComponent<Rigidbody2D>(); // Setting the RigidBody2D component.
 
-        jumpCoolDown = jumpCoolDownBase;    //een "Base" van iets is de standaard waarde; zodat deze later weer opgehaald kan worden
+        attackCooldown = attackCooldownBase;
+        jumpCooldown = jumpCooldownBase;    //een "Base" van iets is de standaard waarde; zodat deze later weer opgehaald kan worden
         runSpeed = runSpeedBase;
     }
 
@@ -53,7 +66,17 @@ public class SC_CharacterBase : MonoBehaviour
             return;
         }
 
-
+        if (canAttack == false && attackCooldown >= 0)              //attack Cooldown timer
+        {
+            attackCooldown -= Time.deltaTime;
+            // Debug.Log(canJump);
+        }
+        else if (canAttack == false)
+        {
+            canAttack = true;
+            attackCooldown = attackCooldownBase;
+            print("Can attack again");
+        }
     }
 
     protected virtual void FixedUpdate()
@@ -83,5 +106,20 @@ public class SC_CharacterBase : MonoBehaviour
         body.velocity = new Vector2(0, jumpForce); // Jump physics.
         //playerState = PlayerState.jumping;
         canLand = true;
+    }
+
+
+    protected virtual void Attack()
+    {
+        runSpeed = 0;
+        canAttack = false;
+        attacking = true;
+        Invoke("StopAttack", 0.2f);
+    }
+
+    protected virtual void StopAttack()     //stopt met de attack
+    {
+        runSpeed = runSpeedBase;
+        attacking = false;
     }
 }

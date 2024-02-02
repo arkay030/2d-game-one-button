@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SC_JumpMode : SC_CharacterBase
+public class SC_AttackMode : SC_CharacterBase
 {
-    private bool canJump = true;
+    [SerializeField] private BoxCollider2D attackHitTrigger;
 
     protected override void Start()
     {
@@ -17,17 +17,14 @@ public class SC_JumpMode : SC_CharacterBase
     {
         base.Update();
 
-        if (Input.anyKeyDown && isGrounded)
+        if (Input.anyKeyDown && canAttack)
         {
-            canJump = false;
-            Jump();
+            Attack();
         }
-
     }
 
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
-        print(isGrounded);
     }
 }
