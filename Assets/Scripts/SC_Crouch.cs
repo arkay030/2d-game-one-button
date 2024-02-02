@@ -26,10 +26,12 @@ public class SC_Crouch : SC_CharacterBase
         {
             if (runSpeed > crouchSpeed)
             {
+                playerState = PlayerState.crouchWalking;
                 runSpeed -= Time.deltaTime;
             }
             else
             {
+                playerState = PlayerState.walking;
                 runSpeed = runSpeedBase;
                 crouched = false;
                 crouchCollider.enabled = false;
