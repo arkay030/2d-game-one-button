@@ -26,7 +26,7 @@ public class SC_CharacterBase : MonoBehaviour
     protected PlayerState playerState;
     [SerializeField] protected Animator animator; // Variable for the Animator component
 
-    [SerializeField] bool crouched;
+    [SerializeField] bool crouched = false;
     protected bool canLand = false;     //voor als die geland is
     protected bool isGrounded; // Variable that will check if character is on the ground.
     [SerializeField] protected GameObject groundCheckPoint; // The object through which the isGrounded check is performed.
